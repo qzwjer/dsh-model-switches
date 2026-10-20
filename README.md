@@ -25,6 +25,14 @@
 
 ## 安装
 
+从 GitHub 直接装（推荐，不需要先拿到 `.tgz`）：
+
+```sh
+dsh plugin --profile <profile> add github:qzwjer/dsh-model-switches
+```
+
+或用本地 tgz：
+
 ```sh
 dsh plugin --profile <profile> add <path-to-tgz>
 ```
@@ -32,7 +40,11 @@ dsh plugin --profile <profile> add <path-to-tgz>
 **换到另一台电脑**请照 [`INSTALL-other-machine.md`](./INSTALL-other-machine.md) 做——只需要拷
 那一个 `.tgz`，不用带源码或 `node_modules`。
 
-> **必须用 tgz，不要用 `link:`。** `link:` 会让 Node 从被链接的源目录解析依赖，而源目录
+> **从仓库地址安装时，下载的是整个仓库。** 所以仓库里刻意只留插件运行真正需要的文件
+> （约 24 KB）；截图与设计记录放在本地 `docs/`，已由 `.gitignore` 排除。这样一次仓库安装
+> 约 6 秒完成，而不是先下载两百多 KB 的图片再丢掉。
+>
+> **必须用 tgz 或仓库地址，不要用 `link:`。** `link:` 会让 Node 从被链接的源目录解析依赖，而源目录
 > 没有 `@deepseek-ai/schemastery`，插件会在加载时 `ERR_MODULE_NOT_FOUND`。
 >
 > **`@deepseek-ai/schemastery` 必须是 `dependencies`，不能是 `peerDependencies`。**
@@ -153,7 +165,7 @@ DSH 自身的目录聚合。插件能做的只是不往里再加一笔。
 pnpm pack --pack-destination dist
 ```
 
-产物落在 `dist/`，只有 6 个文件、约 23KB，**不含** `node_modules`。
+产物落在 `dist/`，只有 7 个文件、约 24 KB，**不含** `node_modules`。
 
 安装到本机：
 
