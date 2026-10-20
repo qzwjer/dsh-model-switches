@@ -4,6 +4,9 @@ node_modules/
 .scratch/
 *.log
 
+# 截图只在本地保留，不入库（占仓库压缩体积 80%+，且安装时完全用不到）
+docs/
+
 # 编辑器与系统
 .vscode/
 .idea/
