@@ -39,9 +39,27 @@ npm view dsh-model-switches version --registry=https://registry.npmjs.org/
 dsh plugin --profile desktop add dsh-model-switches
 ```
 
-## 二、上传到 GitHub
+## 二、上传到 GitHub —— ✅ 已完成
 
-本机 git 直连 GitHub 会被重置，需要经本地代理 `127.0.0.1:7897`。
+仓库已创建并推送：<https://github.com/qzwjer/dsh-model-switches>
+
+用的是本机已有的 SSH 密钥（`~/.ssh/id_rsa`），GitHub 已认可，**不需要 token**。
+建仓库那一步走了 GitHub API（一次性），之后推送全走 SSH。
+
+以后提交改动只需：
+
+```powershell
+cd D:\workspace\dsh-model-switches
+git add -A
+git commit -m "..."
+git push          # SSH，无需认证
+```
+
+> 本机 git 直连 GitHub 会被重置，SSH 走的是另一条路所以能通；如果哪天 SSH 也不通，
+> 给 git 配本地代理 `127.0.0.1:7897` 即可。
+
+<details>
+<summary>（历史记录）当初的建仓库与推送步骤</summary>
 
 ```powershell
 cd D:\workspace\dsh-model-switches
@@ -59,20 +77,12 @@ git remote add origin https://github.com/qzwjer/dsh-model-switches.git
 git -c http.proxy=http://127.0.0.1:7897 -c https.proxy=http://127.0.0.1:7897 push -u origin main
 ```
 
-推送时会要求认证：用 **Personal Access Token**（Settings → Developer settings →
-Personal access tokens → Fine-grained tokens，勾 `Contents: Read and write`）
-作为密码，用户名填 `qzwjer`。
-
-想避免每次输入：
-
-```powershell
-git config --global credential.helper manager   # Git Credential Manager，会弹登录窗口
-```
+</details>
 
 ## 三、发布后收尾
 
-1. 在 GitHub 仓库页面确认 README 渲染正常；
-2. 可选：`gh release create v1.0.0` 打 tag；
+1. ✅ GitHub 仓库已上线，README 已渲染；
+2. 可选：打 tag `git tag v1.0.0 && git push --tags`；
 3. 本机安装方式不受影响，仍可直接从 `dist\*.tgz` 装。
 
 ## 当前状态
@@ -82,7 +92,7 @@ git config --global credential.helper manager   # Git Credential Manager，会�
 | 包名 | `dsh-model-switches`（npm 与 GitHub 均确认未占用） |
 | 版本 | 1.0.0 |
 | 本地已安装并验证 | 是（settings 命名空间 `model-visibility` 未变，已保存的开关设置保留） |
-| git 仓库 | 已初始化，2 个提交，工作区干净 |
-| `npm publish --dry-run` | 通过（7 文件 / 25.1 kB / public） |
-| npm 真实发布 | **待你登录** |
-| GitHub 推送 | **待你建仓库 + token** |
+| git 仓库 | 已初始化，工作区干净 |
+| `npm publish --dry-run` | ✅ 通过（7 文件 / 25.1 kB / public） |
+| **GitHub 仓库与推送** | ✅ 已完成 → <https://github.com/qzwjer/dsh-model-switches> |
+| npm 真实发布 | ⏳ 待你执行 `npm login` 后发布 |

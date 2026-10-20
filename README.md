@@ -6,6 +6,10 @@
 2. **模型级** —— 点开某厂商的「编辑 → 自定义设置 → 模型目录」，可以逐个关闭其中某一个模型，
    该厂商的其它模型不受影响。
 
+> 仓库：<https://github.com/qzwjer/dsh-model-switches>
+> 安装：`dsh plugin --profile desktop add D:\path\to\dsh-model-switches-1.0.0.tgz`
+> （换机详见 [INSTALL-other-machine.md](./INSTALL-other-machine.md)）
+
 ## 它做了什么
 
 | | | |
