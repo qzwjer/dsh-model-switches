@@ -1,0 +1,62 @@
+{
+  "name": "dsh-model-switches",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness plugin: per-provider and per-model switches for the composer's model picker. Settings → Models gains a toggle on every provider card and inside every provider's model catalog; switched-off entries stop being offered, without touching provider config or interrupting running sessions.",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "INSTALL-other-machine.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "model-picker",
+    "llm",
+    "settings",
+    "toggle"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "engines": {
+    "dsh": ">=0.2.0 <0.3.0",
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.4"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qzwjer/dsh-model-switches.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qzwjer/dsh-model-switches/issues"
+  },
+  "homepage": "https://github.com/qzwjer/dsh-model-switches#readme",
+  "author": "qzwjer",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  }
+}

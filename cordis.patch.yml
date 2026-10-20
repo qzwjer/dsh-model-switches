@@ -1,0 +1,16 @@
+# dsh-model-switches bundle patch.
+#
+# One insert mounts the Host half. The browser half is carried by the
+# `dsh.client` declaration in package.json and binds to the row whose name is
+# the BARE package name (a subpath row would not carry it).
+#
+# The row id is the plugin's settings namespace: `settings.describe()` keys each
+# namespace by the Loader entry id, so `- id: model-visibility` is what makes the
+# browser half's `ctx.remote.settings.mutate('model-visibility', …)` address this
+# plugin. Renaming the row renames the namespace — change client.js's
+# SETTINGS_NS with it.
+- insert:
+    - id: model-visibility
+      name: 'dsh-model-switches'
+      config:
+        hiddenProviders: []

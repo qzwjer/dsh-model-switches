@@ -1,0 +1,12 @@
+# 构建产物与本地状态
+dist/*.tgz
+node_modules/
+.scratch/
+*.log
+
+# 编辑器与系统
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
