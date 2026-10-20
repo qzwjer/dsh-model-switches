@@ -68,7 +68,8 @@ Host 侧在 `LlmRuntime.listModels()` 上装一个过滤器：被关闭的 provi
 DSH 的 `buildModelCatalog()` 会丢弃空分组，于是两个模型选择入口同时看不到它。
 选择校验（`modelAvailable`）同样走 `listModels`，所以被隐藏的模型也无法被新选中。
 
-细节、验证记录与已知限制见 [`NOTES-host.md`](./NOTES-host.md) 与 [`NOTES-client.md`](./NOTES-client.md)。
+设计细节与验证记录在仓库的 `docs/` 目录（`NOTES-host.md`、`NOTES-client.md`）；
+该目录不入库，以保持从仓库地址安装时的下载体积最小。
 
 ## 开关的位置是怎么实现的
 
@@ -144,7 +145,6 @@ DSH 自身的目录聚合。插件能做的只是不往里再加一笔。
 | `package.json` | bundle + `dsh.client` 声明 + `engines.dsh` 兼容范围 |
 | `dist/*.tgz` | 分发包（**只把这个拷到别的电脑**） |
 | `INSTALL-other-machine.md` | 换机安装步骤 |
-| `NOTES-host.md` / `NOTES-client.md` | 两个半身的设计与验证记录 |
 
 ## 构建
 
